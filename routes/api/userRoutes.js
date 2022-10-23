@@ -10,7 +10,6 @@ const {
   deleteFriend,
 } = require('../../controllers/userController.js');
 
-//todo bonus: remove a user's thoughts when deleted
 //* route to get all users and create new user
 router.route('/')
   .get(getUsers)
@@ -19,12 +18,12 @@ router.route('/')
 // //* route for fetching individual user, updating/deleting that user
 router.route('/:userId')
   .get(getSingleUser)
-  .update(updateUser) 
-  .delete(deleteUser); 
+  .update(updateUser)
+  .delete(deleteUser);
 
 // //* route for adding and deleting friends from a user
 router.route('/:userId/friends/:friendId')
-  .post(addFriend) //*add to userController functions
-  .delete(deleteFriend)  //*add to userController functions
+  .post(addFriend)
+  .delete(deleteFriend)
 
 module.exports = router;

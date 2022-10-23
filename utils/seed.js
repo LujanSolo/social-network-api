@@ -16,11 +16,4 @@ connection.once('open', async () => {
 })
 
 
-
-
-
-
-
-
-
 console.table(users);

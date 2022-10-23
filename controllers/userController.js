@@ -51,7 +51,8 @@ module.exports = {
         : Thought.deleteMany({ _id: { $in: user.thoughts } })
     )
     .then(() => res.json({ message: 'User and their thoughts - deleted!' }))
-    .catch((err) => res.status(500).json(err));
+    .catch((err) => res.status(500).json(err))
+    )
   },
 
   // Add a friend to a user
@@ -71,7 +72,7 @@ module.exports = {
   },
 
 // Delete friend from a user
-  removeFriend(req, res) {
+  deleteFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
       { $pull: { friend: { friendId: req.params.friendId } } },
@@ -84,10 +85,4 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err))
   },
-
-
-
 };
-
-
-
