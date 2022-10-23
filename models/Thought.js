@@ -1,11 +1,12 @@
-const { Schema, model } = require ('mongoose');
+const { Schema, model, Types } = require ('mongoose');
 
 
 //* 'reaction' subdocument to be embedded into the parent -> Thought document
 const reactionSchema = new Schema (
   {
     reactionId: {
-      
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
     },
     reactionBody: {
       type: String,
@@ -14,7 +15,7 @@ const reactionSchema = new Schema (
     },
     username: {
       type: String,
-      required: true, //*add a req.params.?
+      required: true,
     },
     createdAt: {
       type: Date,
@@ -27,11 +28,16 @@ const thoughtSchema = new Schema (
     thoughtText: {
       type: String,
       required: true,
+      minlength: 1,
       maxlength: 280,
     },
     createdAt: {
       type: Date,
       default: Date.now,
+    },
+    username: {
+      type: String,
+      require: true,
     },
     reactions: [reactionSchema],
   },

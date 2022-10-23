@@ -8,7 +8,7 @@ const {
   updateUser,
   addFriend,
   deleteFriend,
-} = require('../../controllers/userController.js');
+} = require('../../controllers/userController');
 
 // route to get all users and create new user
 router.route('/')
