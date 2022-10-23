@@ -9,6 +9,10 @@ connection.once('open', async () => {
   await Thought.deleteMany({});
 
   const users = [];
+
+  for (let i = 0; i < 20; i++) {
+    
+  }
 })
 
 
