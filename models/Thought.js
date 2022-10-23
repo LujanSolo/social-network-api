@@ -1,11 +1,7 @@
-const { Schema, Types } = require ('mongoose');
+const { Schema, model } = require ('mongoose');
 
 const thoughtSchema = new Schema (
   {
-    thoughtID: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
     thoughtText: {
       maxLength: 280,
       required: true,
@@ -24,4 +20,6 @@ const thoughtSchema = new Schema (
   },
 );
 
-module.exports = thoughtSchema;
+const Thought = model('thought', thoughtSchema);
+
+module.exports = Thought;
