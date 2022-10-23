@@ -2,7 +2,7 @@ const { Schema, model } = require ('mongoose');
 
 
 //* 'reaction' subdocument to be embedded into the parent -> Thought document
-const reactionSchema = new Schema (
+const reactionSchema = new mongoose.Schema (
   {
     reactionId: {
       type: Schema.Types.ObjectId,
@@ -21,8 +21,7 @@ const reactionSchema = new Schema (
       type: Date,
       default: Date.now,
     },
-  }
-)
+});
 
 const thoughtSchema = new Schema (
   {
@@ -35,6 +34,7 @@ const thoughtSchema = new Schema (
       type: Date,
       default: Date.now,
     },
+    reactions: [reactionSchema],
   },
   {
     toJSON: {
