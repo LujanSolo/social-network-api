@@ -1,5 +1,4 @@
-const Thought = require('../models/Thought');
-const User = require('../models/User');
+const { Thought, User } = require('../models');
 
 module.exports = {
 
@@ -27,7 +26,7 @@ module.exports = {
       .then((thought) => {
         User.findOneAndUpdate(
           { username: thought.username },
-          { $addToSet: { thoughts: thought_.id } },
+          { $addToSet: { thought: thought._id } },
           { new: true }
         )
       .then(() => res.status(200).json(thought));
