@@ -22,3 +22,5 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 };
+
+//todo Add delete, update, etc based on routes
