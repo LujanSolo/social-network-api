@@ -19,7 +19,7 @@ router.route('/')
 //* route for fetching individual thought, updating/deleting that thought
 router.route('/:userId')
   .get(getSingleThought)
-  .update(updateThought)
+  .put(updateThought)
   .delete(deleteThought);
 
   // //* route for adding and deleting friends from a user
