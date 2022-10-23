@@ -10,18 +10,18 @@ const {
   deleteFriend,
 } = require('../../controllers/userController.js');
 
-//* route to get all users and create new user
+// route to get all users and create new user
 router.route('/')
   .get(getUsers)
   .post(createUser);
 
-// //* route for fetching individual user, updating/deleting that user
+// route for fetching individual user, updating/deleting that user
 router.route('/:userId')
   .get(getSingleUser)
   .update(updateUser)
   .delete(deleteUser);
 
-// //* route for adding and deleting friends from a user
+// route for adding and deleting friends from a user
 router.route('/:userId/friends/:friendId')
   .post(addFriend)
   .delete(deleteFriend)
