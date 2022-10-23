@@ -1,13 +1,12 @@
-const mongoose = require ('mongoose');
+const { Schema, model } = require ('mongoose');
 
 
 //* 'reaction' subdocument to be embedded into the parent -> Thought document
-const reactionSchema = new mongoose.Schema (
+const reactionSchema = new Schema (
   {
-    // reactionId: {
-    //   type: Schema.Types.ObjectId,
-    //   default: () => new Types.ObjectId(),
-    // },
+    reactionId: {
+      
+    },
     reactionBody: {
       type: String,
       required: true,
@@ -15,7 +14,7 @@ const reactionSchema = new mongoose.Schema (
     },
     username: {
       type: String,
-      required: true,
+      required: true, //*add a req.params.?
     },
     createdAt: {
       type: Date,
@@ -23,7 +22,7 @@ const reactionSchema = new mongoose.Schema (
     },
 });
 
-const thoughtSchema = new mongoose.Schema (
+const thoughtSchema = new Schema (
   {
     thoughtText: {
       type: String,
@@ -52,6 +51,6 @@ thoughtSchema
     return this.reactions.length;
   });
 
-const Thought = mongoose.model('thought', thoughtSchema);
+const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;
