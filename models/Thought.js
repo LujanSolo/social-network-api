@@ -1,4 +1,4 @@
-const { Schema, model } = require ('mongoose');
+const mongoose = require ('mongoose');
 
 
 //* 'reaction' subdocument to be embedded into the parent -> Thought document
@@ -23,7 +23,7 @@ const reactionSchema = new mongoose.Schema (
     },
 });
 
-const thoughtSchema = new Schema (
+const thoughtSchema = new mongoose.Schema (
   {
     thoughtText: {
       maxLength: 280,
@@ -39,11 +39,19 @@ const thoughtSchema = new Schema (
   {
     toJSON: {
       getters: true,
+      virtuals: true,
     },
     id: false,
   },
 );
 
-const Thought = model('thought', thoughtSchema);
+// a virtual called 'reactionCount' that retrieves length of thought's reactions array field on query
+thoughtSchema
+  .virtual('reactionCount')
+  .get(function() {
+    return this.reactions.length;
+  });
+
+const Thought = mongoose.model('thought', thoughtSchema);
 
 module.exports = Thought;
