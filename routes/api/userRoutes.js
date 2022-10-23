@@ -19,8 +19,8 @@ router.route('/')
 // //* route for fetching individual user, updating/deleting that user
 router.route('/:userId')
   .get(getSingleUser)
-  .update(updateUser) //*add to userController functions
-  .delete(deleteUser); //*add to userController functions
+  .update(updateUser) 
+  .delete(deleteUser); 
 
 // //* route for adding and deleting friends from a user
 router.route('/:userId/friends/:friendId')
