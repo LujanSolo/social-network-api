@@ -22,9 +22,11 @@ router.route('/:thoughtId')
   .put(updateThought)
   .delete(deleteThought);
 
-  // route for adding and deleting friends from a user
+  // route for adding reaction from a user
 router.route('/:thoughtId/reactions')
 .post(addReaction)
+
+router.route('/:thoughtId/reactions/:reactionId')
 .delete(deleteReaction)
 
 module.exports = router;

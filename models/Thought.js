@@ -1,13 +1,14 @@
 const { Schema, model, Types } = require ('mongoose');
 
 
+
 //* 'reaction' subdocument to be embedded into the parent -> Thought document
 const reactionSchema = new Schema (
   {
-    reactionId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
+    // reactionId: {
+    //   type: Schema.Types.ObjectId,
+    //   default: () => new Types.ObjectId(),
+    // },
     reactionBody: {
       type: String,
       required: true,
