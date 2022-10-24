@@ -12,6 +12,7 @@ module.exports = {
   //get a single user by id
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
+      .select('-__v')
       .populate("thoughts friends")
       .then((user) =>
         !user

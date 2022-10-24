@@ -52,14 +52,13 @@ module.exports = {
   // delete a thought
   deleteThought(req, res) {
     Thought.findOneAndDelete({ _id: req.params.thoughtId })
-      .then((thought =>
+      .then((thought) =>
         !thought
-          ? res.status(404).json({ message: 'No such thought exists' })
-          : Thought.deleteMany({ _id: { $in: thought.thought } })
+          ? res.status(404).json({ message: 'That thought hasn\'t occured to anyone' })
+          : res.status(200).json(thought)
       )
-        .then(() => res.json({ message: 'thought and their thoughts - deleted!' }))
-        .catch((err) => res.status(500).json(err))
-      )
+      .catch((err) => res.status(500).json(err))
+      
   },
 
   // Add a reaction to a thought
