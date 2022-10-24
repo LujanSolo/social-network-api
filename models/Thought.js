@@ -1,14 +1,8 @@
-const { Schema, model, Types } = require ('mongoose');
+const { Schema, model } = require ('mongoose');
 
-
-
-//* 'reaction' subdocument to be embedded into the parent -> Thought document
+// 'Reaction' subdocument to be embedded into the parent -> Thought document
 const reactionSchema = new Schema (
   {
-    // reactionId: {
-    //   type: Schema.Types.ObjectId,
-    //   default: () => new Types.ObjectId(),
-    // },
     reactionBody: {
       type: String,
       required: true,
@@ -24,6 +18,7 @@ const reactionSchema = new Schema (
     },
 });
 
+// parent document 'Thought'
 const thoughtSchema = new Schema (
   {
     thoughtText: {
@@ -58,6 +53,7 @@ thoughtSchema
     return this.reactions.length;
   });
 
+// build an instance of our 'thought' model based on the schema
 const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;
