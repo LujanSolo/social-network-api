@@ -13,7 +13,7 @@
 
 ## Description
   
-This is a back-end API packagebuilt on a Mongo database, featuring Express.js and Mongoose  to handle a potentially large amount of data with a loose structure. The API provides for the creation of Users, who can perform CRUD operations on their "thoughts," add "reactions" in text form to other users' thoughts, befriend other users, and for the deletion of those same details.
+This is a back-end API package built on a Mongo database, featuring Express.js and Mongoose  to handle a potentially large amount of data with a loose structure. The API provides for both the <b>creation</b> of Users, who can perform CRUD operations on their "thoughts," add "reactions" in text form to other users' thoughts, befriend other users, and for the <b>deletion</b> of those same details.
 
 
 ## Table of Contents
@@ -39,7 +39,7 @@ After cloning the github files into a directory on your PC, open Insomnia (or Th
 
 <br />
 
-As seen detailed above, `USERS`, `THOUGHTS`, `REACTIONS`, and `FRIENDS` each have specific, and differing, CRUD operations available to each of them. You may begin to test your routes, if you prefer, in the following order and use the example data provided to seed your `Json Content` section in Insomnia (or other REST API sandbox).
+As seen detailed above, `USERS`, `THOUGHTS`, `REACTIONS`, and `FRIENDS` each have specific, and differing, CRUD operations available to each of them.
 <br />
 <br />
 
@@ -52,7 +52,7 @@ As seen detailed above, `USERS`, `THOUGHTS`, `REACTIONS`, and `FRIENDS` each hav
 
 <br />
 
-To begin, POST or create a new user. Copy the following object:
+To begin testing routes in Insomnia, POST or create a new user. Copy the following object:
 ```json
 {
   "username": "Jack",
