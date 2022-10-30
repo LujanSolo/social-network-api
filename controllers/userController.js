@@ -47,13 +47,16 @@ module.exports = {
 
   // delete a user
   deleteUser(req, res) {
-    User.findOneAndDelete({ _id: req.params.userId })
+    User.findOneAndRemove({ _id: req.params.userId })
     .then((user) =>
       !user
         ? res.status(404).json({ message: 'No such user exists' })
         : Thought.deleteMany({ _id: { $in: user.thoughts } })
     )
-    .then(() => res.json({ message: 'User and their thoughts - deleted!' }))
+    .then((thought) => 
+    !thought
+    ? res.status(404).json({message: "User exists, but they have no thoughts."})
+    : res.status(200).json({ message: 'User and their thoughts - deleted!' }))
     .catch((err) => res.status(500).json(err))
     
   },
