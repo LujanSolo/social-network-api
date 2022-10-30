@@ -22,10 +22,11 @@ router.route('/:thoughtId')
   .put(updateThought)
   .delete(deleteThought);
 
-  // route for adding reaction from a user
+// route for adding reaction from a user
 router.route('/:thoughtId/reactions')
 .post(addReaction)
 
+// route for adding reaction from a user
 router.route('/:thoughtId/reactions/:reactionId')
 .delete(deleteReaction)
 

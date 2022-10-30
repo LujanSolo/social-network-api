@@ -26,7 +26,7 @@ module.exports = {
       .then((thought) => {
         User.findOneAndUpdate(
           { username: thought.username },
-          { $addToSet: { thought: thought._id } },
+          { $addToSet: { thoughts: thought._id } },
           { new: true }
         )
       .then(() => res.status(200).json(thought));
